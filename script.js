@@ -302,12 +302,20 @@ async function submitForm() {
                 {
                     method: "POST",
 
-                    mode: "no-cors",
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
 
                     body: JSON.stringify(data)
                 }
             );
-            //thành công
+
+        const result =
+            await response.json();
+
+        if (result.success) {
+
             document.querySelector(".card").innerHTML = `
             <div style="
                 text-align:center;
@@ -334,7 +342,21 @@ async function submitForm() {
             </div>
             `;
         }
+        else {
+
+            message.className =
+                "error";
+
+            message.innerHTML =
+                result.message ||
+                "Không ghi được dữ liệu.";
+
+            validateForm();
+        }
+    }
     catch (err) {
+
+        console.error(err);
 
         message.className =
             "error";
