@@ -377,34 +377,3 @@ function getSelected(name) {
 
     return item ? item.value : "";
 }
-
-async function loadStudentCount() {
-
-  try {
-
-    const response =
-      await fetch(
-        "https://mute-credit-dac6.hanhborn.workers.dev/"
-      );
-
-    const data =
-      await response.json();
-
-    document.getElementById(
-      "student-count"
-    ).textContent =
-      `Đã có ${data.count} học sinh đăng ký`;
-
-  }
-  catch(err){
-
-    console.error(
-      "Không lấy được số lượng học sinh:",
-      err
-    );
-
-  }
-
-}
-
-loadStudentCount();
