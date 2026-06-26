@@ -1,4 +1,4 @@
-const WEB_APP_URL = "https://snowy-waterfall-9300.hanhborn.workers.dev/";
+const WEB_APP_URL = "https://mute-credit-dac6.hanhborn.workers.dev/";
 
 const lopHoc = document.getElementById("lopHoc");
 const formSection = document.getElementById("formSection");
